@@ -1,0 +1,1 @@
+echo "\x \\ CREATE DATABASE netbox; \\ CREATE USER netbox WITH PASSWORD '$PGSQL_PASS'; \\ GRANT ALL PRIVILEGES ON DATABASE netbox TO netbox; \\ /q" | psql
