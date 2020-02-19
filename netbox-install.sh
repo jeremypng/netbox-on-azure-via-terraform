@@ -5,5 +5,5 @@ apt-get -q=2 install postgresql libpq-dev
 systemctl start postgresql
 systemctl enable postgresql
 export PGSQL_PASS=`date +%s | sha256sum | base64 | head -c 32 ; echo`
-echo "export PGSQL_PASS=$PGSQL_PASS" >> .bashrc
-echo "\x \\ CREATE DATABASE netbox; \\ CREATE USER netbox WITH PASSWORD '$PGSQL_PASS'; \\ GRANT ALL PRIVILEGES ON DATABASE netbox TO netbox; \\ /q" | su -l postgres psql
+echo "export PGSQL_PASS=$PGSQL_PASS" >> /home/postgres/.bashrc
+curl https://raw.githubusercontent.com/jeremypng/netbox-on-azure-via-terraform/master/postgres-config.sh | su -l postgres bash
